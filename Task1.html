@@ -1,0 +1,70 @@
+<script>
+    function add(){
+        var num1 = parseFloat(txt1.value);
+        var num2 = parseFloat(txt2.value);
+        var results = num1 + num2;
+        result.innerHTML = `Addition of ${num1} and ${num2} is ${results}`;
+    }
+
+    function subtract(){
+        var num1 = parseFloat(txt1.value);
+        var num2 = parseFloat(txt2.value);
+        var results = num1 - num2;
+        result.innerHTML = `Addition of ${num1} and ${num2} is ${results}`;
+    }
+
+    function multiply(){
+        var num1 = parseFloat(txt1.value);
+        var num2 = parseFloat(txt2.value);
+        var results = num1 * num2;
+        result.innerHTML = `Addition of ${num1} and ${num2} is ${results}`;
+    }
+
+    function divide(){
+        var num1 = parseFloat(txt1.value);
+        var num2 = parseFloat(txt2.value);
+        var results = num1 / num2;
+        result.innerHTML = `Addition of ${num1} and ${num2} is ${results}`;
+    }
+
+
+
+</script>
+
+<html>
+
+    <body>
+        <center>
+            <table border = "1" cellpadding = "10" cell spacing = "10" bordercolor = "green" bgcolor = "yellow">
+                <Caption><h3>Calculator</h3></Caption>
+                                    
+                <tr>
+                    <td  colspan = "4"><input type = "text" id = "txt1" placeholder = "Enter First Number"></td>
+                </tr>
+
+                <tr >
+                    <td colspan = "4"><input type = "text" id = "txt2" placeholder = "Enter Second Number"></td>
+                </tr>
+
+                <tr>
+                    <td><input type = "button" id = "btn1" value = "Add" onclick = "add()"></td>
+                    <td><input type = "button" id = "btn2" value = "Subtract" onclick = "subtract()"</td>
+                    <td><input type = "button" id = "btn3" value = "Multiply" onclick = "multiply()"></td>
+                    <td><input type = "button" id = "btn4" value = "Divide" onclick = "divide()"></td>
+                </tr>
+
+                <tr >
+                    <td colspan = "4"><div id = "result" height = 10px width = 10px><b>Answer will be displayed here</b></div></td>
+                </tr>
+                
+            </table>
+        </center>
+    </body><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+   
+
+
+</html>

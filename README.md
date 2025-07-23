@@ -1,2 +1,2 @@
 # Full-Stack-Tasks
-These are Practice problem for Web Development.
+These are Practice problem for Web Development
