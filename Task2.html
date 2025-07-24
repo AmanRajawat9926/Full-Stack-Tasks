@@ -1,0 +1,58 @@
+<script>
+
+   function interest() {
+    var amtValue = parseFloat(document.getElementById("amt").value);
+    var rateValue = parseFloat(document.getElementById("rate").value);   
+    var timeValue = parseFloat(document.getElementById("time").value);
+
+
+    var result = (amtValue * rateValue * timeValue) / 100;
+
+    document.getElementById("interest").innerHTML = `<b>${result}</b>`;
+
+    }
+ 
+
+
+</script>
+
+<html>
+
+   
+
+    <body bgcolor = "lightyellow">
+        <center>
+            <table border = "1" cellpadding = "10" cell spacing = "10" bordercolor = "white" bgcolor = "lightpink">
+                <Caption><h3>Simple Interest Calculator</h3></Caption>
+                                    
+                <tr>
+                    <td  colspan = "4"><input type = "text" id = "amt" placeholder = "Enter Principle Amount"></td>
+                </tr>
+
+                <tr >
+                    <td colspan = "4"><input type = "text" id = "rate" placeholder = "Enter Rate"></td>
+                </tr>
+
+                <tr >
+                    <td colspan = "4"><input type = "text" id = "time" placeholder = "Enter Time"></td>
+                </tr>
+
+                <tr>
+                    
+                    <td colspan = "4">
+                        <div style="text-align: center;">
+                            <input type = "button" id = "btn" value = "Simple Intrest" onclick = "interest()">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr >
+                    <td colspan = "4"><b>SIMPLE INTEREST : </b><span id = "interest" height = 10px width = 10px> </span></td>
+                </tr>
+                
+            </table>
+        </center>
+    </body><br><br><br><br><br><br><br><br><br><br>
+
+
+</html>
