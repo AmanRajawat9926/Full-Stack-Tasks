@@ -1,0 +1,102 @@
+<script>
+	function calculate(){
+  		var phyMarks = parseFloat(document.getElementById("phy").value);
+  		var chemMarks = parseFloat(document.getElementById("chem").value);
+  		var matMarks = parseFloat(document.getElementById("mat").value);
+  		var engMarks = parseFloat(document.getElementById("eng").value);
+  		var hindiMarks = parseFloat(document.getElementById("hindi").value);
+  	
+  		var totals = phyMarks + chemMarks + matMarks + engMarks + hindiMarks;
+  		document.getElementById("total").innerHTML = totals;
+  
+  		var percentage = totals/5;
+  		document.getElementById("per").innerHTML = percentage + "%";
+  
+  		if(percentage > 60){
+  			document.getElementById("division").innerHTML = "A";
+  		}
+  		else{
+ 			document.getElementById("division").innerHTML = "Fail";
+  		}
+  
+  	}
+  
+
+</script>
+
+<html>
+  <body>
+    <center>
+    <table border = "1" cellpadding = "10" cellspacing = "10" bordercolor = "blue" bgcolor = "lightgreen">
+        <caption><h2>Result</h2></caption>
+        <tr>
+            <td colspan="4">
+                <input type="text" id="phy" placeholder="Physics Marks" ><br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <input type="text" id="chem" placeholder="Chemistry Marks" ><br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <input type="text" id="mat" placeholder="Maths Marks" ><br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <input type="text" id="eng" placeholder="English Marks" ><br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <input type="text" id="hindi" placeholder="Hindi Marks" ><br><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <div style="text-align: center;">
+                    <input type="button" value="Submit" onclick="calculate()"><br><br>
+                </div>
+                
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <b>Total : </b><span id = "total"></span><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <b>Percentage : </b><span id = "per"></span><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <b>Division : </b><span id = "division"></span><br>
+            </td>
+        </tr>
+    </table>
+  	</center>
+  
+  </body>
+</html>
+
+    <!-- <input type="text" id="phy" placeholder="Physics Marks" ><br><br>
+    <input type="text" id="chem" placeholder="Chemistry Marks" ><br><br>
+    <input type="text" id="mat" placeholder="Maths Marks" ><br><br>
+    <input type="text" id="eng" placeholder="English Marks" ><br><br>
+    <input type="text" id="hindi" placeholder="Hindi Marks" ><br><br>
+    <input type="button" value="Submit" onclick="calculate()"><br><br>
+    <div id = "total">Total</div><br>
+    <div id = "per">Percentage</div><br>
+    <div id = "division">Division</div><br> -->
