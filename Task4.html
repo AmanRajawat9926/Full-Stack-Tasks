@@ -1,0 +1,62 @@
+<script>
+
+function call(){
+   var num = parseInt(document.getElementById("day").value);
+
+    switch(num){
+        case 1:
+            document.getElementById("days").innerHTML = "Monday";
+            break;
+        case 2:
+            document.getElementById("days").innerHTML = "Tuesday";
+            break;
+        case 3:
+            document.getElementById("days").innerHTML = "Wednesday";
+            break;
+        case 4:
+            document.getElementById("days").innerHTML = "Thursday";
+            break;
+        case 5:
+            document.getElementById("days").innerHTML = "Friday";
+            break;
+        case 6:
+            document.getElementById("days").innerHTML = "Saturday";
+            break;
+        case 7:
+            document.getElementById("days").innerHTML = "Sunday";
+            break;
+        default:
+            document.getElementById("days").innerHTML = "Invalid Day";
+    }
+}
+
+
+</script>
+
+
+
+
+<html>
+    <body>
+    <table border="1" style="background-color: red; margin: auto;">
+
+      <caption><b>Day Calendar</b></caption>
+      <tr>
+        <td>
+          <input type="number" placeholder="Day" id="day" /><br /><br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="Submit" onclick="call()" /><br /><br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Day: </b><span id="days"></span>
+        </td>
+      </tr>
+    </table>
+</body>
+
+</html>
