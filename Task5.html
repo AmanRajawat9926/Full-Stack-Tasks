@@ -1,0 +1,38 @@
+<script>
+    function call(){
+        
+        var i = car.selectedIndex
+        var cn = car.options[i].text
+        var cp = car.options[i].value
+
+        document.getElementById("carname").innerHTML = cn
+        document.getElementById("carprice").innerHTML = `&#8377; ${cp}/- only`
+        document.getElementById("carpic").src = `${cn}.png` 
+        document.getElementById("carpic").width = 500       
+
+
+    }
+
+
+</script>
+
+<html>
+    <body>
+        <h1>List of Cars</h1>
+        <select id = "car" onchange="call()">
+            <option>select Car</option>
+            <option value = "600000">Maruti Alto</option>
+            <option value = "1500000">Maruti Breeza</option>
+            <option value = "1800000">Maruti Ciaz</option>
+        </select><br><br>
+
+        <b>Car Name : </b><span id = "carname"></span><br>
+        <b>Car Price : </b><span id = "carprice"></span><br>
+        <img id = "carpic">
+       
+
+
+    </body>
+
+
+</html>
