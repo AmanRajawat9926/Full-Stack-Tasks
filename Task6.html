@@ -1,0 +1,49 @@
+<script>
+    function call(){
+        
+        var i = pizza.selectedIndex
+        var pn = pizza.options[i].text
+        var pp = pizza.options[i].value
+
+        document.getElementById("pizzaname").innerHTML = pn
+        document.getElementById("pizzaprice").innerHTML = `&#8377; ${pp}/- only`
+        document.getElementById("pizzapic").src = `${pn}.png` 
+        document.getElementById("pizzapic").width = 500 
+        
+        var gst = pp * 0.05
+        document.getElementById("gst").innerHTML = `&#8377; ${parseInt(gst)}/- only`
+
+        var netprice = parseInt(pp) + parseInt(gst)
+        document.getElementById("netp").innerHTML = `&#8377; ${netprice}/- only`
+        
+
+
+
+    }
+
+
+</script>
+
+<html>
+    <body>
+        <h1>List of Pizzas</h1>
+        <select id = "pizza" onchange="call()">
+            <option>select Pizza</option>
+            <option value = "199">Speciality Pizza</option>
+            <option value = "289">Pepperoni</option>
+            <option value = "299">Red Onion</option >
+            <option value = "249">Mozzarella</option >
+        </select><br><br>
+
+        <b>Pizza Name : </b><span id = "pizzaname"></span><br>
+        <b>Pizza Price : </b><span id = "pizzaprice"></span><br>
+        <b>Gst : </b><span id = "gst"></span><br>
+        <b>Net Price : </b><span id = "netp"></span><br>
+        <img id = "pizzapic">
+       
+
+
+    </body>
+
+
+</html>
