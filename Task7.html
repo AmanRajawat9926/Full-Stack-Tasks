@@ -1,0 +1,79 @@
+<script>
+    function call(){
+        var amt = parseFloat(document.getElementById("empsalary").value)
+        var grd = document.getElementById("grade").value
+
+        if(grd == "Grade 1"){
+            var da = amt * 0.25
+            var hra = amt * 0.16 
+            var net = amt + da + hra
+        }
+        else if(grd == "Grade 2"){
+            var da = amt * 0.20
+            var hra = amt * 0.10 
+            var net = amt + da + hra
+        }
+        else if(grd == "Grade 3"){
+            var da = amt * 0.15
+            var hra = amt * 0.08
+            var net = amt + da + hra
+        }
+        
+        document.getElementById("da").innerHTML = `&#8377; ${da}/- only`
+        document.getElementById("hra").innerHTML =`&#8377; ${hra}/- only`
+        document.getElementById("net").innerHTML =`&#8377; ${net}/- only `
+
+    }
+
+
+</script>
+
+<htmL>
+    <body>
+        <center>
+        <table border = "1" cellspacing = 10 cellpadding = 10 bordercolor = "white" style="background-color: rgb(13, 131, 228);"">
+           <caption><h1>Employ Salary Calculator</h1></caption>
+            <tr>
+                <td>
+                    <input type = "text" id = "empsalary" placeholder="Employ Salary"><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td><div style = "text-align: center;">
+                    <select id = "grade">
+                        <option>Select Grade</option>
+                        <option>Grade 1</option>
+                        <option>Grade 2</option>
+                        <option>Grade 3</option>
+                    </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><div style = "text-align: center;">
+                    <input type = "button" value = "Submit" onclick = "call()">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>DA : </b><span id = "da"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>HRA : </b><span id = "hra"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>NET Salary : </b><span id = "net"></span><br>              
+                </td>
+            </tr>
+        </table>
+        </center>
+    </body>
+
+
+     
+</htmL>
