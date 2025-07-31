@@ -1,0 +1,62 @@
+<script>
+    function change(){
+        var i = document.getElementById("state").selectedIndex
+        switch(i){
+            case 1:
+                var mpcity = ['Gwalior' , 'Bhopal' , 'Indore' , 'Ujjain' , 'Bhind']
+                fillDD(mpcity)
+                break
+            case 2:
+                var upcity = ['Lucknow' , 'Noida' , 'Agra' , 'Prayagraj' , 'Ayodhya']
+                fillDD(upcity)
+                break
+            case 3:
+                var gujcity = ['Vadodra' , 'Surat' , 'Ahemdabad' , 'Jamnagar' , 'Bhavnagar']
+                fillDD(gujcity)
+                break
+        }
+    }
+
+    function fillDD(city_arr){
+         var city = document.getElementById("city");
+        removeItems()
+        var i 
+        for(i = 0; i < city_arr.length; i++){
+            var opt = document.createElement('option')
+            opt.text = city_arr[i]
+            city.add(opt)
+        }
+    }
+
+    function removeItems(){
+        var city = document.getElementById("city");
+        var i
+        for(i = city.options.length-1; i >= 1; i--){
+            city.remove(i)
+        }
+    }
+
+
+</script>
+
+<html>
+    <body>
+        <h4>State : </h4>
+        <select id = "state" onchange = "change()">
+            <option>-Select State-</option>
+            <option>Madhya Pradesh</option>
+            <option>Uttar Pradesh</option>
+            <option>Gujarat</option>
+        </select>
+
+        <h4>City : </h4>
+        <select id = "city">
+            <option>-Select City-</option>
+        </select>
+
+    </body>
+
+
+
+</html>
+
