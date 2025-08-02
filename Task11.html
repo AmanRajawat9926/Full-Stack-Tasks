@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu Selector</title>
+    <script>
+        function change(){
+            var i = document.getElementById("menu").selectedIndex;
+            switch(i){
+                case 1:
+                    var southIndian = [
+                        ['Dosa', 60],
+                        ['Idli Sambhar', 50],
+                        ['Uttapam', 70],
+                        ['Vada', 40],
+                        ['Filter Coffee', 30]
+                    ];
+                    fillMenu(southIndian);
+                    break;
+                case 2:
+                    var northIndian = [
+                        ['Chole Bhature', 80],
+                        ['Paneer Butter Masala', 150],
+                        ['Dal Makhani', 120],
+                        ['Tandoori Roti', 20],
+                        ['Lassi', 40]
+                    ];
+                    fillMenu(northIndian);
+                    break;
+                case 3:
+                    var chinese = [
+                        ['Veg Noodles', 100],
+                        ['Fried Rice', 90],
+                        ['Manchurian', 110],
+                        ['Spring Rolls', 80],
+                        ['Hot & Sour Soup', 70]
+                    ];
+                    fillMenu(chinese);
+                    break;
+                case 4:
+                    var italian = [
+                        ['Margherita Pizza', 150],
+                        ['Pasta Alfredo', 140],
+                        ['Lasagna', 160],
+                        ['Bruschetta', 90],
+                        ['Tiramisu', 100]
+                    ];
+                    fillMenu(italian);
+                    break;
+                case 5:
+                    var dessert = [
+                        ['Gulab Jamun', 40],
+                        ['Ice Cream', 50],
+                        ['Rasmalai', 60],
+                        ['Brownie', 70],
+                        ['Jalebi', 30]
+                    ];
+                    fillMenu(dessert);
+                    break;
+                default:
+                    removeItems();
+                    break;
+            }
+        }
+
+        function fillMenu(items){
+            var food = document.getElementById("food");
+            removeItems();
+            for(let i = 0; i < items.length; i++){
+                var opt = document.createElement('option');
+                opt.text = items[i][0];
+                opt.value = items[i][1];
+                food.add(opt);
+            }
+        }
+
+        function removeItems(){
+            var food = document.getElementById("food");
+            for(let i = food.options.length - 1; i >= 1; i--){
+                food.remove(i);
+            }
+        }
+
+        function show(){
+            var i = document.getElementById("menu").selectedIndex;
+            var j = document.getElementById("food").selectedIndex;
+
+
+            var menu = document.getElementById("menu");
+            var food = document.getElementById("food");
+
+            var menuName = menu.options[i].text;
+            var foodName = food.options[j].text;
+            var price = parseInt(food.options[j].value);
+
+            var output = `
+                <h3>Your Order</h3>
+                <table border='1' cellspacing='0' width='30%'>
+                    <tr><td><b>Menu:</b></td><td>${menuName}</td></tr>
+                    <tr><td><b>Food Item:</b></td><td>${foodName}</td></tr>
+                    <tr><td align = 'center' colspan = '2'><img src="${menuName}.png" width="300" style></td></tr>
+                    <tr><td><b>Price:</b></td><td>&#8377; ${price}</td></tr>
+
+                </table>
+            `;
+            document.getElementById("order").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>Restaurant Menu</h2>
+
+        <h3>Select Menu:</h3>
+        <select id="menu" onchange="change()">
+            <option>-Select Menu-</option>
+            <option>South Indian Menu</option>
+            <option>North Indian Menu</option>
+            <option>Chinese Menu</option>
+            <option>Italian Menu</option>
+            <option>Dessert Menu</option>
+        </select>
+
+        <h3>Select Food:</h3>
+        <select id="food">
+            <option>-Select Food-</option>
+        </select><br><br>
+
+        <button onclick="show()">Order Now</button>
+
+        <div id="order" style="margin-top:20px;"></div>
+    </center>
+</body>
+</html>
+
+
