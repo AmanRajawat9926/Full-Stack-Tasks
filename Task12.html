@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maruti Suzuki Car Price Calculator</title>
+    <script>
+        function change(){
+            var i = document.getElementById("car").selectedIndex;
+            switch(i){
+                case 1:
+                    var swift = [
+                        ['Swift LXI (Petrol)', 500000],
+                        ['Swift VXI (Petrol)', 550000],
+                        ['Swift ZXI (Petrol)', 600000],
+                        ['Swift ZXI+ Dual Tone (Petrol)', 650000],
+                        ['Swift ZXI+ (Petrol)', 700000]
+                    ];
+                    fillDD(swift);
+                    break;
+                case 2:
+                    var baleno = [
+                        ['Baleno Sigma', 500000],
+                        ['Baleno Delta', 550000],
+                        ['Baleno Zeta', 800000],
+                        ['Baleno Alpha', 850000],
+                        ['Baleno Alpha Dual Tone', 900000]
+                    ];
+                    fillDD(baleno);
+                    break;
+                case 3:
+                    var wagonr = [
+                        ['WagonR LXI 1.0', 454000],
+                        ['WagonR VXI 1.0', 489000],
+                        ['WagonR ZXI 1.2', 525000],
+                        ['WagonR ZXI+ 1.2', 559000],
+                        ['WagonR VXI CNG', 619000]
+                    ];
+                    fillDD(wagonr);
+                    break;
+                case 4:
+                    var brezza = [
+                        ['Brezza LXI', 820000],
+                        ['Brezza VXI', 900000],
+                        ['Brezza ZXI', 980000],
+                        ['Brezza ZXI+', 1050000],
+                        ['Brezza ZXI+ Dual Tone', 1080000]
+                    ];
+                    fillDD(brezza);
+                    break;
+                case 5:
+                    var dzire = [
+                        ['Dzire LXI', 650000],
+                        ['Dzire VXI', 700000],
+                        ['Dzire ZXI', 750000],
+                        ['Dzire ZXI+', 800000],
+                        ['Dzire VXI CNG', 830000]
+                    ];
+                    fillDD(dzire);
+                    break;
+                default:
+                    removeItems();
+                    break;
+            }
+        }
+
+        function fillDD(variant_arr){
+            var variant = document.getElementById("variant");
+            removeItems();
+            for(let i = 0; i < variant_arr.length; i++){
+                var opt = document.createElement('option');
+                opt.text = variant_arr[i][0];
+                opt.value = variant_arr[i][1];
+                variant.add(opt);
+            }
+        }
+
+        function removeItems(){
+            var variant = document.getElementById("variant");
+            for(let i = variant.options.length - 1; i >= 1; i--){
+                variant.remove(i);
+            }
+        }
+
+        function show(){
+            var i = document.getElementById("car").selectedIndex;
+            var j = document.getElementById("variant").selectedIndex;
+            
+            if(i === 0 || j === 0){
+                alert("Please select both Car and Variant.");
+                return;
+            }
+
+            var car = document.getElementById("car");
+            var variant = document.getElementById("variant");
+
+            var carName = car.options[i].text;
+            var variantName = variant.options[j].text;
+            var price = parseInt(variant.options[j].value);
+
+            var tax = price * 0.28;
+            var ins = price * 0.12;
+            var rto = price * 0.08;
+            var tp = price + tax + ins + rto;
+
+            var htm = `<table border='1' cellspacing='0' width='30%'>`;
+            htm += `<caption><h3>${carName} ${variantName} On-Road Price</h3></caption>`;
+            htm += `<tr><th><img src='logo.png' width='150'></th></tr>`;
+            htm += `<tr><th><img src='${carName}.png' width='300'></th></tr>`;
+            htm += `</table>`;
+            htm += `<table border='1' cellspacing='0' width='30%'>`;
+            htm += `<tr><td><b>Base Price:</b></td><td align='right'>&#8377;${price.toLocaleString()}</td></tr>`;
+            htm += `<tr><td><b>GST [28%]:</b></td><td align='right'>&#8377;${tax.toLocaleString(undefined, {maximumFractionDigits: 2})}</td></tr>`;
+            htm += `<tr><td><b>Insurance [12%]:</b></td><td align='right'>&#8377;${ins.toLocaleString(undefined, {maximumFractionDigits: 2})}</td></tr>`;
+            htm += `<tr><td><b>RTO [8%]:</b></td><td align='right'>&#8377;${rto.toLocaleString(undefined, {maximumFractionDigits: 2})}</td></tr>`;
+            htm += `<tr style='background-color:lightgrey'><td><b>Total On-Road Price:</b></td><td align='right'>&#8377;${tp.toLocaleString(undefined, {maximumFractionDigits: 2})}</td></tr>`;
+            htm += `</table>`;
+
+            document.getElementById("result").innerHTML = htm;
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <h2>Maruti Suzuki Car Price Calculator</h2>
+    
+    <label for="car"><b>Select Car:</b></label><br>
+    <select id="car" onchange="change()">
+        <option>-Select Car-</option>
+        <option>Maruti Suzuki Swift</option>
+        <option>Maruti Suzuki Baleno</option>
+        <option>Maruti Suzuki WagonR</option>
+        <option>Maruti Suzuki Brezza</option>
+        <option>Maruti Suzuki Dzire</option>
+    </select>
+
+    <h3>Select Variant:</h3>
+    <select id="variant">
+        <option>-Select Variant-</option>
+    </select><br><br>
+
+    <button onclick="show()">Show On-Road Price</button>
+
+    <div id="result" style="margin-top:20px;"></div>
+    </center>
+</body>
+</html>
+
+
+
+
