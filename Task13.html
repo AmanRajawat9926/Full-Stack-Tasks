@@ -1,0 +1,57 @@
+<script>
+    function show(){
+        var idx = document.getElementById("movie").selectedIndex
+        var category = movie.options[idx].text;
+
+
+        var htm = `<table border = '1' cellspacing = '5' cellpadding = '10' bgcolor = 'lightyellow'>`;
+            htm += `<caption><h2>${movie.options[idx].text}.<h2><caption>`;
+
+            htm += `<tr>`
+            for(var i = 1; i <= 3; i++){     
+                        htm +=  `<td><img src = "${category}${i}.png" width="300" height="400"></td>`
+                    }
+            htm += `</tr>`
+
+            htm += `<tr>`
+                for(var i = 4; i <= 6; i++){
+                            htm +=  `<td><img src = "${category}${i}.png" width="300" height="400"></td>`
+                        }
+                htm += `</tr>`
+
+            htm += `</table>`
+            
+
+            document.getElementById('banner').innerHTML = htm
+
+    }
+
+
+
+
+</script>
+
+
+<html>
+
+    <body>
+        <center>
+        <h2>Select Movie category</h2>
+        <select id = "movie" onchange="show()">
+            <option>-Select Movie-</option>
+            <option>Comedy Movies</option>
+            <option>Action Movies</option>
+            <option>Drama Movies</option>
+            <option>Potratic Movie</option>
+            <option>Horror Movies</option>
+        </select>
+
+        <div id = "banner"></div>
+
+        </center>
+
+    </body>
+
+</html> 
+
+
