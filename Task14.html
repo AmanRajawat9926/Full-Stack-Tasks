@@ -1,0 +1,179 @@
+<script>
+    function selectState(){
+        var idx = document.getElementById("country").selectedIndex
+        
+        switch(idx){
+            case 1:
+                var ind = ["Uttar Pradesh", "Maharashtra", "Tamil Nadu", "Rajasthan", "Madhya Pradesh"];
+                fillDD(ind)
+                break;
+            case 2:
+                var chi = ["Guangdong", "Sichuan", "Zhejiang", "Yunnan", "Shandong"];
+                fillDD(chi)
+                break;
+            case 3:
+                var pak = ["Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan", "Gilgit-Baltistan"];
+                fillDD(pak)
+                break;
+        }
+    }
+
+    function fillDD(state_arr){
+        var state = document.getElementById("states")
+
+        removeItems()
+        for(let i = 0; i < state_arr.length; i++){
+            var opt = document.createElement('option');
+            opt.text = state_arr[i];
+            state.add(opt);
+        }
+
+    }
+
+    function removeItems(){
+            var state = document.getElementById("states");
+            for(let i = state.options.length - 1; i >= 1; i--){
+                state.remove(i);
+            }
+        }
+
+    function selectCity(){
+    var idx = document.getElementById("country").selectedIndex
+    var idx2 = document.getElementById("states").selectedIndex
+    for(var i = 1; i <= 3; i++){
+        for(var j = 1; j <= 5; j++){
+            if(idx == 1 && idx2 == 1){
+                var up = ["Lucknow", "Kanpur", "Varanasi"];
+                fillDD2(up)
+                break;
+            }
+            else if(idx == 1 && idx2 == 2){
+                var mh = ["Mumbai", "Pune", "Nagpur"];
+                fillDD2(mh)
+                break;
+            }
+            else if(idx == 1 && idx2 == 3){
+                var tn = ["Chennai", "Coimbatore", "Madurai"];
+                fillDD2(tn)
+                break;
+            }
+            else if(idx == 1 && idx2 == 4){
+                var rj = ["Jaipur", "Jodhpur", "Udaipur"];
+                fillDD2(rj)
+                break;
+            }
+            else if(idx == 1 && idx2 == 5){
+                var mp = ["Bhopal", "Indore", "Gwalior"];
+                fillDD2(mp)
+                break;
+            }
+            else if(idx == 2 && idx2 == 1){
+                var gd = ["Guangzhou", "Shenzhen", "Dongguan"];
+                fillDD2(gd)
+                break;
+            }
+            else if(idx == 2 && idx2 == 2){
+                var sh = ["Chengdu", "Mianyang", "Leshan"];
+                fillDD2(sh)
+                break;
+            }
+            else if(idx == 2 && idx2 == 3){
+                var zh = ["Hangzhou", "Ningbo", "Wenzhou"];
+                fillDD2(zh)
+                break;
+            }
+            else if(idx == 2 && idx2 == 4){
+                var yn = ["Kunming", "Dali", "Lijiang"];
+                fillDD2(yn)
+                break;
+            }
+            else if(idx == 2 && idx2 == 5){
+                var shd = ["Jinan", "Qingdao", "Yantai"];
+                fillDD2(shd)
+                break;
+            }
+            else if(idx == 3 && idx2 == 1){
+                var pj = ["Lahore", "Rawalpindi", "Multan"];
+                fillDD2(pj)
+                break;
+            }
+            else if(idx == 3 && idx2 == 2){
+                var sd = ["Karachi", "Hyderabad", "Sukkur"];
+                fillDD2(sd)
+                break;
+            }
+            else if(idx == 3 && idx2 == 3){
+                var kp = ["Peshawar", "Abbottabad", "Mardan"];
+                fillDD2(kp)
+                break;
+            }
+            else if(idx == 3 && idx2 == 4){
+                var bln = ["Quetta", "Gwadar", "Turbat"];
+                fillDD2(bln)
+                break;
+            }
+            else if(idx == 3 && idx2 == 5){
+                var gb = ["Gilgit", "Skardu", "Hunza"];
+                fillDD2(gb)
+                break;
+            }
+        }
+    }
+}
+
+
+    function fillDD2(city_arr){
+        var city = document.getElementById("cities")
+        removeItems2()
+        for(var i = 0; i < city_arr.length; i++){
+            var opt = document.createElement("option")
+            opt.text = city_arr[i];
+            city.add(opt);
+        }
+    }
+
+    function removeItems2(){
+        var city = document.getElementById("cities")
+        for(let i = city.options.length - 1; i >= 1; i--){
+                city.remove(i);
+            }
+    }
+
+    function showMap(){
+        var img = document.getElementById("map");
+        img.src = "google map1.png";
+        img.width = 1000;
+        img.style.borderRadius = "20px";
+    }
+
+
+</script>
+
+<html>
+
+    <body>
+        <center>
+        <select id = "country" onchange = "selectState()">
+            <option>-Select Country-</option>
+            <option>India</option>
+            <option>China</option>
+            <option>Pakistan</option>
+        </select><br><br>
+
+        <select id = "states" onchange = "selectCity()">
+            <option>-Select State-</option>
+        </select><br><br>
+
+        <select id = "cities" >
+            <option>-Select City-</option>
+        </select><br><br>
+
+        <input type = "button" value = "Submit !" onclick = "showMap()"><br><br>
+        <img id = "map">
+
+        </center>
+    </body>
+
+
+
+</html>
