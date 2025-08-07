@@ -1,3 +1,5 @@
+// This is the logic of Generate color program 
+
 let btn = document.querySelector("button");
 let div = document.querySelector("div");
 let heading = document.querySelector("h2");
