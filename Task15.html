@@ -1,0 +1,113 @@
+<!-- <script>
+
+
+
+
+</script>
+
+<html>
+    <body>
+        <center>
+            <select id="box1" size="5" style="margin-right: 50px;">
+                <option>Pepsi</option>
+                <option>Fanta</option>
+                <option>Frooti</option>
+                <option>Maaza</option>
+                <option>Coke</option>
+            </select>
+
+            <select id="box1" size="5" style="margin-left: 50px; margin-top: 100px;""  >
+                
+            </select><br><br>
+
+            <input type = "button" value = ">" style="margin-right: 10px;" id = "button1">
+            <input type = "button" value = "<" style="margin-right: 10px;" id = "button2">
+            
+            <input type = "button" value = ">>" style="margin-right: 10px;" id = "button3">
+            <input type = "button" value = "<<" style="margin-right: 10px;" id = "button4">
+
+        </center>
+    </body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move Items Between Boxes</title>
+</head>
+<body>
+<center>
+    <h1>Move Items Between Boxes</h1>
+    <!-- Select Boxes -->
+    <select id="box1" size="5" style="margin-right: 50px; width: 200px; height: 200px; font-size: 30px; padding: 10px; font-family: 'Times New Roman', Times, serif;">
+    <option>Pepsi</option>
+    <option>Fanta</option>
+    <option>Frooti</option>
+    <option>Maaza</option>
+    <option>Coke</option>
+</select>
+
+<select id="box2" size="5" style="margin-left: 50px; width: 200px; height: 200px; font-size: 30px; padding: 10px; font-family: 'Times New Roman', Times, serif;">
+   
+</select><br><br>
+
+
+   
+    <input type="button" value=">" style="margin-right: 10px;" id="button1">
+    <input type="button" value="<" style="margin-right: 10px;" id="button2">
+    <input type="button" value=">>" style="margin-right: 10px;" id="button3">
+    <input type="button" value="<<" style="margin-right: 10px;" id="button4">
+</center>
+    
+    <script>
+        const box1 = document.getElementById("box1");
+        const box2 = document.getElementById("box2");
+
+        
+        document.getElementById("button1").onclick = function () {
+            const selectedIndex = box1.selectedIndex;
+            if (selectedIndex >= 0) {
+                const option = box1.options[selectedIndex];
+                const newOption = option.cloneNode(true);
+                box2.appendChild(newOption);
+                box1.removeChild(option);
+            }
+        };
+
+        
+        document.getElementById("button2").onclick = function () {
+            const selectedIndex = box2.selectedIndex;
+            if (selectedIndex >= 0) {
+                const option = box2.options[selectedIndex];
+                const newOption = option.cloneNode(true);
+                box1.appendChild(newOption);
+                box2.removeChild(option);
+            }
+        };
+
+        
+        document.getElementById("button3").onclick = function () {
+            while (box1.options.length > 0) {
+                const option = box1.options[0];
+                const newOption = option.cloneNode(true);
+                box2.appendChild(newOption);
+                box1.removeChild(option);
+            }
+        };
+
+        
+        document.getElementById("button4").onclick = function () {
+            while (box2.options.length > 0) {
+                const option = box2.options[0];
+                const newOption = option.cloneNode(true);
+                box1.appendChild(newOption);
+                box2.removeChild(option);
+            }
+        };
+    </script>
+
+</body>
+</html>
+
