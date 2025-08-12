@@ -1,8 +1,10 @@
 body {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif
+    background-color: antiquewhite;
 }
 button {
+    background-color: #4CAF50; /* Green */
     padding: 10px 20px;
     margin: 20px;
     font-size: 16px;
