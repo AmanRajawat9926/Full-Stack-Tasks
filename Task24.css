@@ -1,0 +1,23 @@
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.clock {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+#time {
+    color: #00ffcc;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
